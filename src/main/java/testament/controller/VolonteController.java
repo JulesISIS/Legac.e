@@ -33,7 +33,7 @@ import testament.validator.UserValidator;
  * @author nelsonrogers
  */
 
-@Controller 
+@Controller
 @Slf4j
 public class VolonteController {
 
@@ -43,7 +43,6 @@ public class VolonteController {
     @Autowired
     UserRepository utilisateurDAO;
 
-    //Données Twitter :
     @GetMapping("/donnesTwitter")
     public String volonte(Model model) {
         model.addAttribute("volonte", new Volonte());
@@ -66,16 +65,14 @@ public class VolonteController {
             volonte.setReseau(Reseau.TWITTER);
 
             volonteDAO.save(volonte);
-            resultat = "Vos préférences Twitter ont bien été enregistrées. \n Vous pouvez les retrouver dans l'onglet Informations Utilisateur.";
+            resultat = "Vos préférences Twitter ont bien été enregistrés";
 
         } catch (Exception ex) {
             resultat = "Un problème est survenu : " + ex.getMessage();
             // log.error("Unable to tweet {}", message, ex);
         }
-
         redirectInfo.addFlashAttribute("resultat", resultat);
         return "redirect:/welcome";
 
     }
-
 }

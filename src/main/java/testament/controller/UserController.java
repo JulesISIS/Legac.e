@@ -32,14 +32,6 @@ public class UserController {
     @Autowired
     UserRepository utilisateurDAO;
 
-    @GetMapping(path = "pageUser")
-    public String montrePageUtilisateur(
-            @AuthenticationPrincipal Utilisateur user,  // Les infos de l'utilisateur connecté
-            Model model) {
-        log.info("L'utilisateur id: {}, email: {} accède à sa page", user.getId(), user.getEmail());
-        return "pageUser"; // On affiche la vue 'pageUser.html'
-    }
-    
     @GetMapping(path = "pageSouvenir")
     public String souvenir(@AuthenticationPrincipal Utilisateur user, Model model) {
         return "pageSouvenir";
@@ -70,10 +62,11 @@ public class UserController {
 
     }
 
-    @GetMapping(path = "informationsUtilisateur")
+    @GetMapping("/informationsUtilisateur")
     public String informationsUtilisateur(@AuthenticationPrincipal Utilisateur user, Model model) {
         model.addAttribute("volontes", volonteDAO.findAll());
         return "informationsUtilisateur";
     }
-    
+
 }
+
