@@ -170,17 +170,3 @@ img {
   width: 100px;
   height: auto;
 }
-
-#volontes {
-font-size : small;
-text-align : center;
-}
-
-ul {
-list-style:none;
-padding-left:0;
-}
-li {
-margin-bottom:30px;
-margin-left:15;
-}

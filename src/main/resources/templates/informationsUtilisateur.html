@@ -33,14 +33,13 @@
     <p id="p1">
       Vous pouvez ici retrouver vos informations personnelles :
     </p>
-    <div id="preferences">
     <a class="renvoi" href=""><img src="/loupe.png"></a>
     <p id="p2">
       Vous pouvez ici accéder à votre formulaire d'inscription pour modifier vos informations personnelles :
     </p>
     <a class="renvoi" href=""><img src="/formulaire.png"></a>
-        <br/>
-        <div id="volontes">
+    <br/>
+       <div id="volontes">
         <ul th:each="v: ${volontes}">
             <li>
                 <span th:if="${v.reseau}">Twitter : <br> Destinataire : [[${v.usernameDestinataire}]] <br> Message : [[${v.message}]] <br> Retweet id : [[${v.idTweet }]]
@@ -69,6 +68,5 @@
             </ul>
             </li>
         </ul>
-        </div>
   </body>
 </html>
