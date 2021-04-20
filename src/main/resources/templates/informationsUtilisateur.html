@@ -41,7 +41,7 @@
     <div id="volontees">
         <ul th:each="v: ${volontes}">
             <li th:if="${v.reseau}" class="titres">Twitter : </li>
-            <ul>
+            <ul th:if="${v.reseau}">
                 <li>Destinataire : [[${v.usernameDestinataire}]]</li>
                 <li>Message : [[${v.message}]] </li>
                 <li>Retweet id : [[${v.idTweet }]] </li>
