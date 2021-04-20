@@ -171,3 +171,16 @@ img {
   height: auto;
 }
 
+#volontes {
+margin top : 40px;
+font-size : small;
+}
+
+ul {
+list-style:none;
+padding-left:0;
+}
+li {
+margin-bottom:30px;
+margin-left:15;
+}

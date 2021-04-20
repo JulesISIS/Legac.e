@@ -25,6 +25,8 @@ import testament.entity.Reseau;
 import testament.entity.Volonte;
 import testament.entity.Utilisateur;
 import testament.service.VolonteService;
+import testament.validator.UserValidator;
+
 
 /**
  *
@@ -34,37 +36,38 @@ import testament.service.VolonteService;
 @Controller 
 @Slf4j
 public class VolonteController {
-    
+
     @Autowired
     VolonteRepository volonteDAO;
-    
+
     @Autowired
     UserRepository utilisateurDAO;
-    
+
+    //Données Twitter :
     @GetMapping("/donnesTwitter")
     public String volonte(Model model) {
         model.addAttribute("volonte", new Volonte());
         return "donnesTwitter";
     }
-    
+
     @PostMapping("/donnesTwitter")
-    public String enregistrerVolontes(@AuthenticationPrincipal Utilisateur user, @Valid @ModelAttribute("volonte") Volonte volonte, 
-            RedirectAttributes redirectInfo) {
+    public String enregistrerVolontes(@AuthenticationPrincipal Utilisateur user, @Valid @ModelAttribute("volonte") Volonte volonte,
+                                      RedirectAttributes redirectInfo) {
         log.info(user.getNom());
-        
+
         String resultat;
         try {
             if (volonte.getIdTweet() != null || volonte.getMessage() != null || volonte.getUsernameDestinataire() != null) {
-                
+
             }
-            
+
             Utilisateur u = utilisateurDAO.getOne(user.getId());
             volonte.setUtilisateur(u);
             volonte.setReseau(Reseau.TWITTER);
-            
+
             volonteDAO.save(volonte);
-            resultat = "Vos préférences Twitter ont bien été enregistrés";
-            
+            resultat = "Vos préférences Twitter ont bien été enregistrées. \n Vous pouvez les retrouver dans l'onglet Informations Utilisateur.";
+
         } catch (Exception ex) {
             resultat = "Un problème est survenu : " + ex.getMessage();
             // log.error("Unable to tweet {}", message, ex);
@@ -74,4 +77,5 @@ public class VolonteController {
         return "redirect:/welcome";
 
     }
+
 }

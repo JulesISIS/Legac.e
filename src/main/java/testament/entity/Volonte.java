@@ -44,5 +44,20 @@ public class Volonte {
     
     @ManyToOne
     private Utilisateur utilisateur;
+
+    private boolean paypal;
+
+    private boolean pinterest;
+
+    private boolean fbCommemoration;
+
+    private boolean fbFormulaire;
+
+    private boolean instaCommemoration;
+
+    private boolean instaFormulaire;
+
+    private boolean google;
+
     
 }

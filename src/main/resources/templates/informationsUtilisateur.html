@@ -33,10 +33,41 @@
     <p id="p1">
       Vous pouvez ici retrouver vos informations personnelles :
     </p>
+    <div id="preferences">
     <a class="renvoi" href=""><img src="/loupe.png"></a>
     <p id="p2">
       Vous pouvez ici accéder à votre formulaire d'inscription pour modifier vos informations personnelles :
     </p>
     <a class="renvoi" href=""><img src="/formulaire.png"></a>
+        <div id="volontes">
+        <ul th:each="v: ${volontes}">
+            <li>
+                <span th:if="${v.reseau}">Twitter : <br> Destinataire : [[${v.usernameDestinataire}]] <br> Message : [[${v.message}]] <br> Retweet id : [[${v.idTweet }]]
+                </span>
+            <li th:if="${v.paypal}">Paypal :</li>
+            <ul>
+                <li th:if="${v.paypal}">Vos volontés Paypal seront exécutées</li>
+            </ul>
+            <li th:if="${v.pinterest}">Pinterest :</li>
+            <ul>
+                <li th:if="${v.pinterest}">Vos volontés Pinterest seront exécutées</li>
+            </ul>
+            <li th:if="${v.fbCommemoration} or ${v.fbFormulaire}">Facebook :</li>
+            <ul>
+                <li th:if="${v.fbCommemoration}">Vous avez accès au formulaire de transformation de votre compte Facebook en compte de commémoration</li>
+                <li th:if="${v.fbFormulaire}">Votre famille aura accès au formulaire de fermeture de votre compte Facebook</li>
+            </ul>
+            <li th:if="${v.instaCommemoration} or ${v.instaFormulaire}">Instagram :</li>
+            <ul>
+                <li th:if="${v.instaCommemoration}">Vous avez accès au formulaire de transformation de votre compte Instagram en compte de commémoration</li>
+                <li th:if="${v.instaFormulaire}">Votre famille aura accès au formulaire de fermeture de votre compte Instagram</li>
+            </ul>
+            <li th:if="${v.google}">Google :</li>
+            <ul>
+                <li th:if="${v.google}">Vos volontés Google seront exécutées></li>
+            </ul>
+            </li>
+        </ul>
+        </div>
   </body>
 </html>
