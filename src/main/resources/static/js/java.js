@@ -1,4 +1,4 @@
-document.getElementById("recherche").addEventListener("click", listeCommunes);
+/*document.getElementById("recherche").addEventListener("click", listeCommunes);
 function listeCommunes() {
   let codeP = document.getElementById("lieuNaiss").value;
   const url =
@@ -25,4 +25,4 @@ function listeCommunes() {
     .catch((error) => {
       console.log(error);
     });
-}
+}*/
