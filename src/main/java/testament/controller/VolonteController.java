@@ -65,7 +65,7 @@ public class VolonteController {
             volonte.setReseau(Reseau.TWITTER);
 
             volonteDAO.save(volonte);
-            resultat = "Vos préférences Twitter ont bien été enregistrés";
+            resultat = "Vos préférences Twitter ont bien été enregistrées";
 
         } catch (Exception ex) {
             resultat = "Un problème est survenu : " + ex.getMessage();
@@ -75,4 +75,5 @@ public class VolonteController {
         return "redirect:/welcome";
 
     }
+
 }

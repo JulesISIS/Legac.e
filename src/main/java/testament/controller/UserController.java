@@ -37,6 +37,13 @@ public class UserController {
         return "pageSouvenir";
     }
 
+
+    @GetMapping("/informationsUtilisateur")
+    public String informationsUtilisateur(@AuthenticationPrincipal Utilisateur user, Model model) {
+        model.addAttribute("volontes", volonteDAO.findAll());
+        return "informationsUtilisateur";
+    }
+
     @GetMapping("/preferencesReseaux")
     public String autresVolontes(Model model) {
         model.addAttribute("autresVolontes", new Volonte());
@@ -60,12 +67,6 @@ public class UserController {
         redirectInfo.addFlashAttribute("resultat", resultat);
         return "redirect:/welcome";
 
-    }
-
-    @GetMapping("/informationsUtilisateur")
-    public String informationsUtilisateur(@AuthenticationPrincipal Utilisateur user, Model model) {
-        model.addAttribute("volontes", volonteDAO.findAll());
-        return "informationsUtilisateur";
     }
 
 }
